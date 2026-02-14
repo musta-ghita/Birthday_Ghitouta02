@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كتاب عيد ميلادك Ghita</title>
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(to bottom, #ffe6f0, #ffccdd);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ff0066;
+  }
+  .book {
+    width: 90%;
+    max-width: 700px;
+    background: #fff0f5;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  /* الغلاف */
+  .cover {
+    width: 100%;
+    height: 400px;
+    background-image: url('cover.jpg'); /* ضع اسم صورتك هنا */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff3366;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .page {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px;
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 15px;
+    padding: 30px 25px;
+    position: relative;
+  }
+  .page.active { display: flex; }
+
+  h1, h2, p {
+    color: #ff3366;
+    text-shadow: none; /* بدون ظلال */
+  }
+  .page-number {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #ff3366;
+  }
+  .navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #ff3366;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .nav-btn:hover { background: #ff6699; }
+</style>
+</head>
+<body>
+
+<div class="book">
+  <div class="cover">
+    نشأة قمر
+  </div>
+
+  <!-- الصفحات -->
+  <div class="page active">
+    <h1>كتاب صغير لعيد ميلادك 🥳🎂🎊✨</h1>
+    <p>الإهداء إلى أجمل إنسانة دخلت حياتي، إلى سبب ضحكتي وسعادتي فدنيا الخايبة هذي، اللي تخليني نرتاح وننسا تعب وهموم الدنيا 🫂 هذا الكتاب الصغير ولا الصفحات غي باش نقولك شحال كتعنيلي وشحال كيعنيلي نهار طلوعك يا القمر بحد ذاته 😊💗</p>
+    <div class="page-number">❤️ 1 ❤️</div>
+  </div>
+
+  <div class="page">
+    <h2>الفصل الأول: نهار تزاديتي</h2>
+    <p>15 فيفري 2009، ولاول مرة غادي يخرج القمر، و يوري وينور الطريق للي ظلامت عليهم 😊💗</p>
+    <p>نهار تزاديتي مكاش غي نهار عادي كالايام، كان نهار تزاد فيه الفرحة ظهر فيه القمر لاول مرة وضوا لينا وبين ليا الطريق فهاد الدنيا، وتزادت فيه إنسانة غادي تبدلي حياتي كاملـة بلا ما نحس يا لوكان بكلمة منها صغيرة وبسيطة</p>
+    <p>منين عرفتك يا غيثوتي، وكلشي تبدل للأحسن، ووريتيني الدنيا بنظرة جديدة، نظرة فيها الأمل، وفيها الحب، وفيها دنيتي لي هيا نتي.</p>
+    <div class="page-number">❤️ 2 ❤️</div>
+  </div>
+
+  <div class="page">
+    <h2>الفصل الثاني: نتي فحياتي</h2>
+    <p>وجودك فحياتي ماشي صدفة، وجودك هو أجمل هدية عطاهالي الله</p>
+    <p>كنلقى الراحة فالهدرة معاك، والفرحة فضحكتك، والأمان غي ملي نكون عارف بلي نتي بخير.</p>
+    <p>كل نهار كنحبك أكثر من اللي قبلو، وكل لحظة نحمد ربي حيت جمعني بيك او. نشاله تا حاجة متوقفنا من مشاكل وصداع كبار كانو ولا صغار</p>
+    <div class="page-number">❤️ 3 ❤️</div>
+  </div>
+
+  <div class="page">
+    <h2>الفصل الثالث: تمنياتي ليك</h2>
+    <p>فهاد عيد الميلاد ديالك، كنتمنا ليك فرحة ما تكملش، وضحكة تبقى ديما مرسومة فوجهك، وأحلام كبيرة تتحقق وحدة بوحدة كيما يبغي قلبك و يسهل فطريقك لي غانكون فسها اول داعم وسند وركيزة فيها</p>
+    <p>غنشاركك الضحك قبل الحزن، والنجاح قبل التعب، وكل لحظة زوينة تبغي تعيشيها نكون كطيف ليك ميفارقكش</p>
+    <div class="page-number">❤️ 4 ❤️</div>
+  </div>
+
+  <div class="page">
+    <h2>الفصل الرابع: وعد مني</h2>
+    <p>نوعدك نبقى ديما جنبك، فالأيام الحلوة قبل المرة، ونكون الشخص اللي يفرح لفرحك💗، ويوقف معاك فكل خطوة فحياتك.</p>
+    <p>نوعدك نحبك بصح… حب يكبر مع الوقت، وما ينقصش مهما دازو السنين ورغم على كل المشاكل اللي واقعة والتوتر</p>
+    <div class="page-number">❤️ 5 ❤️</div>
+  </div>
+
+  <div class="page">
+    <h2>الخاتمة</h2>
+    <p>Happy birthday ya 3omri ❤️</p>
+    <p>Lyom nhar bzaf special hit tzadt fih ajmal insana 3raftha fhyati kolha 💗 ntmna lik Dhka wlbsma li matfar9ch wjhk nchlh , w lfrha li t3biii 9lbk 🫂😊 , w kolchi zwin ttmnayh ytha9e9 lik bd2idn lah</p>
+    <p>hablkk t3rfi belli wjoudk ya 3winati fhyati howa ahsen a7la w2fdl w 2rwe3 hadiya 3tahali rbi 🫂💗</p>
+    <p>Ykhlik lia dima snin daymaa nchlh ya 2e7la 9mra 9bltha wb yjma3ni bik flkhir w lfrh w nkonoo m3a b3d f bzaf dyel a3yad lmilaad jaya nchlh</p>
+    <p>Kanbghik bzaf ya ktkotiii Ghitaaa 🎂✨</p>
+    <div class="page-number">❤️ 6 ❤️</div>
+  </div>
+
+  <!-- أزرار التصفح -->
+  <div class="navigation">
+    <button class="nav-btn" id="prevBtn">السابق</button>
+    <button class="nav-btn" id="nextBtn">التالي</button>
+  </div>
+</div>
+
+<script>
+const pages = document.querySelectorAll(".page");
+let current = 0;
+
+function showPage(index){
+  pages.forEach(p => p.classList.remove("active"));
+  pages[index].classList.add("active");
+}
+
+document.getElementById("nextBtn").onclick = () => {
+  if(current < pages.length-1){
+    current++;
+    showPage(current);
+  }
+}
+document.getElementById("prevBtn").onclick = () => {
+  if(current > 0){
+    current--;
+    showPage(current);
+  }
+}
+
+// عرض الصفحة الأولى عند التحميل
+showPage(current);
+</script>
+
+</body>
+</html>
