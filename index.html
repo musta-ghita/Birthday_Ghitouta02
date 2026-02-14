@@ -33,6 +33,7 @@
     background-size: cover;
     background-position: center;
     border-radius: 20px;
+    position: relative;
   }
 
   .page {
@@ -150,42 +151,55 @@
     <div class="page-number">❤️ 6 ❤️</div>
   </div>
 
+  <div class="navigation">
+    <button class="nav-btn" id="prevBtn">السابق</button>
+    <button class="nav-btn" id="nextBtn">التالي</button>
+  </div>
+
 </div>
 
 <script>
 const cover = document.getElementById("coverPage");
 const coverBtn = document.getElementById("coverBtn");
 const pages = document.querySelectorAll(".page");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
 let current = 0;
 
-// عند الضغط على الغلاف
+// الغلاف -> الصفحة الأولى
 coverBtn.onclick = () => {
   cover.style.display = "none";
   pages[current].classList.add("active");
+  updateNav();
 }
 
-// أزرار التصفح داخل الكتاب
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.createElement("button");
-prevBtn.textContent = "السابق";
-prevBtn.className = "nav-btn";
-prevBtn.style.marginRight = "10px";
-document.querySelector(".book").appendChild(prevBtn);
-
-prevBtn.onclick = () => {
-  if(current > 0){
-    pages[current].classList.remove("active");
-    current--;
-    pages[current].classList.add("active");
-  }
+function updateNav(){
+  prevBtn.style.display = (current === 0) ? "none" : "inline-block";
+  nextBtn.style.display = (current === pages.length-1) ? "none" : "inline-block";
 }
+
+// التالي
 nextBtn.onclick = () => {
   if(current < pages.length-1){
     pages[current].classList.remove("active");
     current++;
     pages[current].classList.add("active");
+    updateNav();
   }
 }
+
+// السابق
+prevBtn.onclick = () => {
+  if(current > 0){
+    pages[current].classList.remove("active");
+    current--;
+    pages[current].classList.add("active");
+    updateNav();
+  }
+}
+
+// عند التحميل الأول
+updateNav();
 </script>
 
 </body>
