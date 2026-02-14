@@ -50,7 +50,7 @@
 
   h1, h2, p {
     color: #ff3366;
-    text-shadow: none; /* بدون ظلال */
+    text-shadow: none;
   }
 
   .page-number {
@@ -139,7 +139,41 @@
     </div>
   </div>
 
-  <!-- أضف بقية الصفحات بنفس الطريقة -->
+  <div class="page">
+    <h2>الفصل الثالث: تمنياتي ليك</h2>
+    <p>فهاد عيد الميلاد ديالك، كنتمنا ليك فرحة ما تكملش، وضحكة تبقى ديما مرسومة فوجهك، وأحلام كبيرة تتحقق وحدة بوحدة كيما يبغي قلبك و يسهلك فطريقك لي غانكون فسها اول داعم وسند وركيزة فيها</p>
+    <p>غنشاركك الضحك قبل الحزن، والنجاح قبل التعب، وكل لحظة زوينة تبغي تعيشيها نكون كطيف ليك ميفارقكش</p>
+    <div class="page-number">❤️ 4 ❤️</div>
+    <div class="navigation">
+      <button class="nav-btn prev">السابق</button>
+      <button class="nav-btn next">التالي</button>
+    </div>
+  </div>
+
+  <div class="page">
+    <h2>الفصل الرابع: وعد مني</h2>
+    <p>نوعدك نبقى ديما جنبك، فالأيام الحلوة قبل المرة، ونكون الشخص اللي يفرح لفرحك💗، ويوقف معاك فكل خطوة فحياتك.</p>
+    <p>نوعدك نحبك بصح… حب يكبر مع الوقت، وما ينقصش مهما دازو السنين ورغم على كل المشاكل اللي واقعة والتوتر</p>
+    <div class="page-number">❤️ 5 ❤️</div>
+    <div class="navigation">
+      <button class="nav-btn prev">السابق</button>
+      <button class="nav-btn next">التالي</button>
+    </div>
+  </div>
+
+  <div class="page">
+    <h2>الخاتمة</h2>
+    <p>Happy birthday ya 3omri ❤️</p>
+    <p>Lyom nhar bzaf special hit tzadt fih ajmal insana 3raftha fhyati kolha 💗 ntmna lik Dhka wlbsma li matfar9ch wjhk nchlh , w lfrha li t3biii 9lbk 🫂😊 , w kolchi zwin ttmnayh ytha9e9 lik bd2idn lah</p>
+    <p>hablkk t3rfi belli wjoudk ya 3winati fhyati howa ahsen a7la w2fdl w 2rwe3 hadiya 3tahali rbi 🫂💗</p>
+    <p>Ykhlik lia dima snin daymaa nchlh ya 2e7la 9mra 9bltha wb yjma3ni bik flkhir w lfrh w nkonoo m3a b3d f bzaf dyel a3yad lmilaad jaya nchlh</p>
+    <p>Kanbghik bzaf ya ktkotiii Ghitaaa 🎂✨</p>
+    <p>from mustapha 😊🫂</p>
+    <div class="page-number">❤️ 6 ❤️</div>
+    <div class="navigation">
+      <button class="nav-btn prev">السابق</button>
+    </div>
+  </div>
 
 </div>
 
@@ -149,20 +183,18 @@ const coverBtn = document.getElementById("coverBtn");
 const pages = document.querySelectorAll(".page");
 let current = 0;
 
-// زر الغلاف -> الصفحة الأولى
 coverBtn.onclick = () => {
   cover.style.display = "none";
   pages[0].classList.add("active");
   updateNav();
 }
 
-// التنقل داخل الصفحات
 function updateNav() {
   pages.forEach((page, i) => {
     const prevBtn = page.querySelector(".prev") || document.getElementById("prevBtn");
     const nextBtn = page.querySelector(".next") || document.getElementById("nextBtn");
 
-    if(prevBtn) prevBtn.style.display = (i === 0) ? "inline-block" : "inline-block";
+    if(prevBtn) prevBtn.style.display = "inline-block";
     if(nextBtn) nextBtn.style.display = (i === pages.length-1) ? "none" : "inline-block";
 
     if(prevBtn) prevBtn.onclick = () => navigate(-1);
@@ -173,6 +205,12 @@ function updateNav() {
 function navigate(step) {
   pages[current].classList.remove("active");
   current += step;
+  if(current === -1) {
+    pages[0].classList.remove("active");
+    cover.style.display = "block";
+    current = 0;
+    return;
+  }
   pages[current].classList.add("active");
   updateNav();
 }
