@@ -28,18 +28,11 @@
   /* الغلاف */
   .cover {
     width: 100%;
-    height: 400px;
+    height: 500px;
     background-image: url('cover.jpg'); /* ضع اسم صورتك هنا */
     background-size: cover;
     background-position: center;
     border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ff3366;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
   }
 
   .page {
@@ -58,6 +51,7 @@
     color: #ff3366;
     text-shadow: none; /* بدون ظلال */
   }
+
   .page-number {
     position: absolute;
     bottom: 15px;
@@ -66,6 +60,7 @@
     font-size: 18px;
     color: #ff3366;
   }
+
   .navigation {
     margin-top: 20px;
     display: flex;
@@ -81,17 +76,35 @@
     font-size: 16px;
   }
   .nav-btn:hover { background: #ff6699; }
+
+  /* زر الغلاف فقط */
+  #coverBtn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    background: #ff3366;
+    color: #fff;
+    cursor: pointer;
+  }
+  #coverBtn:hover { background: #ff6699; }
 </style>
 </head>
 <body>
 
 <div class="book">
-  <div class="cover">
-    نشأة قمر
+
+  <!-- الغلاف -->
+  <div class="cover active" id="coverPage">
+    <button id="coverBtn">التالي</button>
   </div>
 
-  <!-- الصفحات -->
-  <div class="page active">
+  <!-- صفحات الكتاب -->
+  <div class="page">
     <h1>كتاب صغير لعيد ميلادك 🥳🎂🎊✨</h1>
     <p>الإهداء إلى أجمل إنسانة دخلت حياتي، إلى سبب ضحكتي وسعادتي فدنيا الخايبة هذي، اللي تخليني نرتاح وننسا تعب وهموم الدنيا 🫂 هذا الكتاب الصغير ولا الصفحات غي باش نقولك شحال كتعنيلي وشحال كيعنيلي نهار طلوعك يا القمر بحد ذاته 😊💗</p>
     <div class="page-number">❤️ 1 ❤️</div>
@@ -137,37 +150,42 @@
     <div class="page-number">❤️ 6 ❤️</div>
   </div>
 
-  <!-- أزرار التصفح -->
-  <div class="navigation">
-    <button class="nav-btn" id="prevBtn">السابق</button>
-    <button class="nav-btn" id="nextBtn">التالي</button>
-  </div>
 </div>
 
 <script>
+const cover = document.getElementById("coverPage");
+const coverBtn = document.getElementById("coverBtn");
 const pages = document.querySelectorAll(".page");
 let current = 0;
 
-function showPage(index){
-  pages.forEach(p => p.classList.remove("active"));
-  pages[index].classList.add("active");
+// عند الضغط على الغلاف
+coverBtn.onclick = () => {
+  cover.style.display = "none";
+  pages[current].classList.add("active");
 }
 
-document.getElementById("nextBtn").onclick = () => {
-  if(current < pages.length-1){
-    current++;
-    showPage(current);
-  }
-}
-document.getElementById("prevBtn").onclick = () => {
+// أزرار التصفح داخل الكتاب
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.createElement("button");
+prevBtn.textContent = "السابق";
+prevBtn.className = "nav-btn";
+prevBtn.style.marginRight = "10px";
+document.querySelector(".book").appendChild(prevBtn);
+
+prevBtn.onclick = () => {
   if(current > 0){
+    pages[current].classList.remove("active");
     current--;
-    showPage(current);
+    pages[current].classList.add("active");
   }
 }
-
-// عرض الصفحة الأولى عند التحميل
-showPage(current);
+nextBtn.onclick = () => {
+  if(current < pages.length-1){
+    pages[current].classList.remove("active");
+    current++;
+    pages[current].classList.add("active");
+  }
+}
 </script>
 
 </body>
